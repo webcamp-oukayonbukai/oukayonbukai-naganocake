@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :public
+  devise_for :admin
   namespace :public do
     get 'orders/new'
     get 'orders/confirm'
