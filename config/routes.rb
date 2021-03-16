@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
+  get 'order_details/update'
+  get 'orders/show'
+  get 'orders/update'
+  get 'genres/index'
+  get 'genres/create'
+  get 'genres/edit'
+  get 'genres/update'
+  get 'items/index'
+  get 'items/new'
+  get 'items/create'
+  get 'items/show'
+  get 'items/edit'
+  get 'items/update'
+  get 'customers/index'
+  get 'customers/show'
+  get 'customers/edit'
+  get 'customers/update'
+  get 'homes/top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
