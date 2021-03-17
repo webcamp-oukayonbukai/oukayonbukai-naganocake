@@ -20,7 +20,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :postal_code, null: false
       t.string :address, null: false
       t.string :telephone_number, null: false
-      t.boolean :withdraw_status, null: false, default: true
+      t.boolean :withdlaw_status, null: false, default: true
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
