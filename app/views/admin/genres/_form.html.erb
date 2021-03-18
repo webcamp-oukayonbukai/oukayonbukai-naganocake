@@ -1,4 +1,8 @@
 <%= form_with model: [:admin, genre], local: true do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit "新規登録" %>
+  <% if genre.id.nil? %>
+    <%= f.submit "新規登録" %>
+  <%else%>
+    <%= f.submit "変更保存" %>
+  <% end %>
 <% end %>
