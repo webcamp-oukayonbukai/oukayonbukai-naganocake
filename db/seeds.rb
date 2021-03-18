@@ -28,7 +28,7 @@ Customer.create!(
   last_name: '山田',
   first_name: '花子',
   last_name_kana: 'ヤマダ',
-  first_name_kana: '花子',
+  first_name_kana: 'ハナコ',
   postal_code: '0000000',
   address: '山梨県山梨市人梨町',
   telephone_number: '00000000000',
