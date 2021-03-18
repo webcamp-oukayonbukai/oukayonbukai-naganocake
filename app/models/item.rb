@@ -4,7 +4,4 @@ class Item < ApplicationRecord
   has_many :order_details
   
   attachment :image
-  enum sale_status: { true:1, false:2 }
-  
-  
 end

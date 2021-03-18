@@ -8,32 +8,36 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(genre_params)
-    # @image = Image.new(genre_params)
+    @item = Item.new(item_params)
     if @item.save
-      # @image.save
-      redirect_to admin_item_path, notice: "You have created item successfully."
+      redirect_to admin_item_path(@item.id)
     else
       @item = Item.new
-      # @image = Image.new
       render :new
     end
   end
 
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
-
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_item_path,  notice: "You have updated genre successfully."
+    else
+      render :edit
+    end
   end
 
   private
 
-  def image_params
-    params.require(:item).permit(:image)
+  def item_params
+    params.require(:item).permit(:name, :description, :image, :price, :sale_status, :genre_id)
   end
 end
