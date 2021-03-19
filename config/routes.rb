@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     :sessions => "admin/sessions"
   }
 
+  devise_for :customer, :controllers => {
+    :registrations => "public/registrations",
+    :sessions => "public/sessions"
+  }
+
   namespace :admin do
     get "/" => "homes#top"
     resources :customers, only: [:index, :show, :edit, :update]
@@ -15,11 +20,6 @@ Rails.application.routes.draw do
       resources :order_details, only: [:update]
     end
   end
-
-  devise_for :customer, :controllers => {
-    :registrations => "public/registrations",
-    :sessions => "public/sessions"
-  }
 
   scope module: :public do
     root to: "homes#top"
