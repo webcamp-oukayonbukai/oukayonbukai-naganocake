@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_085431) do
+ActiveRecord::Schema.define(version: 2021_03_17_060836) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "name"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_085431) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -37,8 +36,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_085431) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id"
-    t.integer "product_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -71,11 +68,10 @@ ActiveRecord::Schema.define(version: 2021_03_18_085431) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.string "image_id"
-    t.boolean "sale_status", default: true
+    t.string "image"
+    t.boolean "sale_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "genre_id"
   end
 
   create_table "order_details", force: :cascade do |t|
@@ -84,8 +80,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_085431) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "order_id"
-    t.integer "item_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -98,7 +92,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_085431) do
     t.integer "buy_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id"
   end
 
 end
