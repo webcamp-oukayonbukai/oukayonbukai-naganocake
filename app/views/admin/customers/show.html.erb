@@ -34,7 +34,13 @@
           </tr>
           <tr>
             <td>会員ステータス</td>
-            <td><%= @customer.withdraw_status %></td>
+            <td>
+              <% if@customer.withdraw_status == false %>
+                有効
+              <% else %>
+                退会
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td></td>
