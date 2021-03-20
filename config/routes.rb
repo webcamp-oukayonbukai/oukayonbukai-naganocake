@@ -24,11 +24,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get "/about" => "homes#about"
-
-    get "/my_page" => "customers#show"
+    get "/customers/my_page" => "customers#show"
     get "/customers/unsubscribe" => "customers#unsubscribe"
     patch "/customers/withdraw" => "customers#withdraw"
-    get "/customers/show" => "customers#show"
     get "/customers/edit" => "customers#edit"
     get "/customers" => "customers#update"
     get "/customers/unsubscribe" => "customers#unsubscribe"
