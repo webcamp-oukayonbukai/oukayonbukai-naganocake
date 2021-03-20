@@ -1,17 +1,31 @@
-
-
-<p class="title">配送先登録/一覧</h1>
-<%= form_with model: @address, local: true do |f| %>
-
-<%= f.label :"郵便番号(ハイフンなし)" %>
-<%= f.text_field :postcode, autofocus: true, autocomplete: "postcode",placeholder: "0000000" %>
-
-<%= f.label :"住所" %>
-<%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "東京都渋谷区代々木神園町0-0", size: 70 %>
-
-<%= f.label :"宛名" %>
-<%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "令和道子" %>
-
-<%= f.submit "新規登録", class: 'btn btn-outline-success' %>
-
-<% end %>
+<h1>配送先登録/一覧</h1>
+<%= render 'form', address: @address %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class= "table table-bordered">
+        <thread>
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thread>
+        <tbody>
+          <% @addresses.each do |address| %>
+          <tr>
+            <td><%= address.postcode %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td>
+              <%= link_to '編集する', edit_address_path(address) %>
+              <%= link_to '削除する', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{address.id}" %>
+            </td>
+          </tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>
