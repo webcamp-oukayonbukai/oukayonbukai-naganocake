@@ -1,2 +1,24 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<!--商品一覧画面から一つの商品を選び、個数を入力して「購入」ボタンを押す-->
+<!--カート詳細画面に移動し、現在カートに入っている商品一覧を出す。-->
+<!--3. カート詳細画面の中からでも、個数は自由に変更でき、「更新」ボタンで個数を変更できる。-->
+<!--4. カートから特定の商品を取り出したい場合は、その商品の「削除」ボタンを押す-->
+<h1>ショッピングカート</h1>
+<!--カートを空にするボタン　ー＞　destroy_all_cart_items_path, method: :delete, "data-confirm"-->
+商品名
+単価（税込）
+数量
+小計
+
+<% @cart_items.each do |cart_item| %>
+<% item = cart_item.item %>
+
+商品画像
+<!--数量設定これでできるはず-->
+<%= f.select :amount, [*(1..10)], {include_blank: false}, id: "cart_item_amount_#{cart_item.id}" %>
+<%= f.submit "変更" %>
+<%= cart_item.subtotal %>円
+
+削除ボタン
+<%= f.submit "カートを空にする", class: 'btn btn-outline-success' %>
+<%= f.submit "削除する", class: 'btn btn-outline-success' %>
+<% end %>
