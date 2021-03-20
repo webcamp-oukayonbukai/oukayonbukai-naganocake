@@ -4,4 +4,8 @@ class Item < ApplicationRecord
   has_many :order_details
   
   attachment :image
+  
+  def tax_price
+    (price * 1.1).ceil
+  end
 end

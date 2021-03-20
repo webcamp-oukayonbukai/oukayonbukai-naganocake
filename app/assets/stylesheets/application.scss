@@ -17,9 +17,35 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+main {
+  padding: 30px 0;
+  background-color: #fff5ea;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  background-color: #f7dad9;
+  text-align: auto;
+  padding: 10px 0;
+}
+
+.nav-link {
+  color: #968c83;
+}
+
+p, h3, td, th {
+  color: #968c83;
+}
+
+.new-items {
+  margin: 45px 0;
+}
+
 .main-visual {
   width: 100%;
   height: 400px;
+  margin-top: 40px;
   background-image: url(public-top.jpg);
   background-size: cover;
   background-position: center;
@@ -37,5 +63,38 @@
 .shop-name {
   font-size: 50px;
   font-family: 'Corben', cursive;
-
 }
+
+.title {
+  font-size: 20px;
+}
+
+.login-table {
+  padding: 0 100px;
+}
+
+.unsubsctibe {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+}
+
+.title-about {
+  font-size: 80px;
+  font-family: 'Corben', cursive;
+}
+
+.plus-button:hover {
+  color: #d2b48c;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.plus-button {
+  color: #d2b48c;
+  opacity: 0.5;
+  text-decoration: none;
+}
+

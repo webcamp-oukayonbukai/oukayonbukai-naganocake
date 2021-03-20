@@ -1,13 +1,32 @@
 <div class="container">
+  
   <div class="row">
     <div class="col-md-12">
-      <p><strong>商品一覧</strong>(全<%= @items.count %>件)</p>
+      <p><strong>商品一覧</strong>(全<%= @items_all.count %>件)</p>
       <% @items.each do |item| %>
-        <%= attachment_image_tag(item, :image, :fill, 50, 100) %>
-        <%= item.name %>
-        <%= item.price %>
+         <table class= "d-inline-block">
+          <tr>
+            <td>
+              <%= link_to item_path(item) do %>
+                <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <td>¥<%= item.price.to_s(:delimited) %></td>
+          </tr>
+        </table>
       <% end %>
-      <%= paginate @items %>
    </div>
   </div>
+
+  <div class="row">
+    <div class="center-block mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
+
 </div>
