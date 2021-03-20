@@ -5,4 +5,7 @@ class Item < ApplicationRecord
   
   attachment :image
   
+  def tax_price
+    (price * 1.1).ceil
+  end
 end
