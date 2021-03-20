@@ -3,7 +3,7 @@
     <div class="col-md-12">
 
 　　<p class="title"><%= @customer.last_name+@customer.first_name %>さんの会員情報編集</p>
-　　<%= form_with model: @customer, local: true do |f| %>
+　　<%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
 　　<table class= "table table-borderless table-sm">
 　　  <tr>
 　　    <td>会員ID</td>
@@ -50,7 +50,7 @@
 　　  </tr>
 　　</table>
 　　<% end %>
-　　
+
     </div>
   </div>
 </div>
