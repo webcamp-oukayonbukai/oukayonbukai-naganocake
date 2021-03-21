@@ -2,13 +2,13 @@
   <div class="row">
 
     <div class="col-lg-4">
-      <%= attachment_image_tag @item, :image, format: 'jpeg', size: "270x150" %>
+      <%= attachment_image_tag @item, :image, format: 'jpeg', size: "250x150" %>
     </div>
 
     <div class="col-lg-8">
     <table class="table table-borderless table-sm">
       <tr>
-        <td><%= @item.name %></td>
+        <td><strong><%= @item.name %></strong></td>
       </tr>
       <tr>
         <td><%= @item.description %></td>
@@ -21,9 +21,12 @@
         <td>¥<%= @item.tax_price.to_s(:delimited) %>(税込)</td>
       </tr>
       <tr>
-        <td><%= f.submit "編集内容を保存", class: 'btn btn-outline-success' %></td>
-        <td><%= link_to "カートに入れる", customers_unsubscribe_path(@customer), class: 'btn btn-outline-success' %></td>
+        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+        <td><%= f.select :quantity, [*(1..10)], { include_blank: '個数選択' } %></td>
+        <td><%= f.submit "カートに入れる", class: 'btn btn-outline-success' %></td>
+        <% end %>
       </tr>
+      </table>
       </div>
 
   </div>
