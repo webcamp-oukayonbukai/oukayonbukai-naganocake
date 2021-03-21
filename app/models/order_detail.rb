@@ -3,6 +3,6 @@ class OrderDetail < ApplicationRecord
   belongs_to
   
   def subtotal
-    (quantity * tax_price)
+    quantity * tax_price
   end
 end
