@@ -1,2 +1,40 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+
+    <p class="title">注文履歴一覧</p>
+      <table class="table table-hover table-inverse" >
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at %></td>
+            <td><%= order.name %></td>
+            <td><%= %></td>
+            <td>
+              <% if order.buy_status == true %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="center-block mx-auto">
+        <%= paginate @orders %>
+      </div>
+    </div>
+  
+</div>
