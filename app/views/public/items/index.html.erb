@@ -2,23 +2,44 @@
   
   <div class="row">
     <div class="col-md-12">
-      <p><strong>商品一覧</strong>(全<%= @items_all.count %>件)</p>
-      <% @items.each do |item| %>
-         <table class= "d-inline-block">
-          <tr>
-            <td>
-              <%= link_to item_path(item) do %>
-                <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= item.name %></td>
-          </tr>
-          <tr>
-            <td>¥<%= item.price.to_s(:delimited) %></td>
-          </tr>
-        </table>
+      <% if @genre %>
+        <p><strong><%= @genre.name %>一覧</strong>(全<%= @genre.items.count %>件)</p>
+        <% @genre.items.each do |item| %>
+          <table class= "d-inline-block">
+            <tr>
+              <td>
+                <%= link_to item_path(item) do %>
+                  <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= item.name %></td>
+            </tr>
+            <tr>
+              <td>¥<%= item.price.to_s(:delimited) %></td>
+            </tr>
+          </table>
+        <% end %>
+      <% else %>
+        <p><strong>商品一覧</strong>(全<%= @items_all.count %>件)</p>
+        <% @items.each do |item| %>
+           <table class= "d-inline-block">
+            <tr>
+              <td>
+                <%= link_to item_path(item) do %>
+                  <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= item.name %></td>
+            </tr>
+            <tr>
+              <td>¥<%= item.price.to_s(:delimited) %></td>
+            </tr>
+          </table>
+        <% end %>
       <% end %>
    </div>
   </div>
