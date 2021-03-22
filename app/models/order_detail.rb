@@ -9,4 +9,7 @@ class OrderDetail < ApplicationRecord
     complete: 3, #製作完了
     }
   
+  def subtotal
+    quantity * tax_price
+  end
 end

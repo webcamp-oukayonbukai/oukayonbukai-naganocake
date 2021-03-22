@@ -1,2 +1,72 @@
-<h1>注文履歴</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <p class="title">注文履歴詳細<p>
+      <div class="col-md-7">
+        <p><strong>注文情報</strong></p>
+        <table class="table table-bordered">
+          <tr>
+            <td>注文日</td>
+            <td><%= @order.created_at %></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td><%= @order.postal_code %><br><%= @order.address %><br><%= @order.name %></td>
+          </tr>
+          <tr>
+            <td>支払方法</td>
+            <td><%= @order.pay_type %></td>
+          </tr>
+          <tr>
+            <td>ステータス</td>
+            <td><%= @order.buy_status %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <p><strong>請求情報</strong></p>
+        <table class="table table-bordered">
+          <tr>
+            <td>商品合計</td>
+            <!--ここが不明-->
+            <td><%= @order.item_price_total %></td>
+          </tr>
+          <tr>
+            <td>配送料</td>
+            <!--ここが不明-->
+            <td><%= @order.shipping_cost %></td>
+          </tr>
+           <tr>
+            <td>ご請求額</td>
+            <!--ここが不明-->
+            <td><%= @order.total_price %></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p><strong>注文内容</strong></p>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <td>商品</td>
+              <td>単価（税込）</td>
+              <td>個数</td>
+              <td>小計</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.item.name %></td>
+              <td><%= order.tax_price.to_s(:delimited) %></td>
+              <td><%= order.item.quantity %></td>
+              <td><%= order.subtotal %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
