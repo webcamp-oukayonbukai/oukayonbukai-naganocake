@@ -29,6 +29,25 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @order.shipping_cost = 800
+    @order.total_price = @order.cal_price(current_customer)
+    if @order.save
+        current_customer.cart_items.each do |cart_item|
+          order_detail = OrderDetail.new
+          order_detail.quantity = cart_item.quantity
+          order_detail.price = cart_item.item.price
+          order_detail.order_id = @order.id
+          order_detail.item_id = cart_item.item_id
+          order_detail.save
+        end
+        current_customer.cart_items.destroy_all
+      redirect_to complete_orders_path
+    else
+      @order = Order.new
+      render :new
+    end
   end
 
   def index

@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-lg-8">
       <h3>ショッピングカート</h3>
+      <%= form_with model: @order, local: true do |f| %>
         <table class="table table-bordered table-sm">
           <thread>
             <tr>
@@ -26,15 +27,16 @@
             <% end %>
           </tbody>
         </table>
+  <% end %>
     </div>
   </div>
 </div>
 送料
-800
+<%= @order.shipping_cost %>
 商品合計
 <%= @cart_items.sum(&:subtotal) %>
 請求金額
-<%= 800 + @cart_items.sum(&:subtotal) %>
+<%= @order.cal_price(current_customer) %>
 
 支払方法
 <% if @order.pay_type == "creditcard" %>
@@ -49,3 +51,13 @@
 <%= @order.postcode %>
 <%= @order.address %>
 <%= @order.name %>
+
+<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+<%= f.hidden_field :postcode, value: @order.postcode %>
+<%= f.hidden_field :address, value: @order.address %>
+<%= f.hidden_field :name, value: @order.name %>
+<%= f.hidden_field :pay_type, value: @order.pay_type %>
+<%= f.hidden_field :total_price, value: @order.total_price %>
+<%= f.hidden_field :buy_status, value: @order.buy_status %>
+<%= f.submit "注文を確定する", class: 'btn btn-outline-success btn-sm' %>
+<% end %>

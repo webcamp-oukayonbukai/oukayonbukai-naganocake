@@ -15,5 +15,11 @@ class Order < ApplicationRecord
     shipped: 4, #発送済み
     }
 
+  def shipping_cost
+    800
+  end
 
+  def cal_price(customer)
+ 	  shipping_cost + customer.cart_items.sum(&:subtotal)
+  end
 end
