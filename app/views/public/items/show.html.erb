@@ -1,35 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
       <%= attachment_image_tag @item, :image, format: 'jpeg', size: "250x150" %>
     </div>
-    
-    <div class="col-lg-8">
-      <%= form_with(model: [@item, @cart_item], local: true, url:cart_items_path) do |f| %>
+
+    <div class="col-md-5">
+      <%= form_with model: [@item, @cart_item], url:cart_items_path, local: true do |f| %>
       <%= f.hidden_field :item_id, value: @item.id %>
+        <h3><%= @item.name %></h3>
+        <p><%= @item.description %></p>
+
         <table class="table table-borderless table-sm">
-          <tr>
-            <td><strong><%= @item.name %></strong></td>
-          </tr>
-          <tr>
-            <td><%= @item.description %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
           <tr>
             <td>¥<%= @item.tax_price.to_s(:delimited) %>(税込)</td>
           </tr>
           <tr>
-            <td>
+            <td style="width: 30%">
               <%= f.select :quantity, [*(1..10)], { include_blank: '個数選択' } %></td>
             <td>
-              <%= f.submit "カートに入れる", class: 'btn btn-outline-success' %>
+              <%= f.submit "カートに入れる", class: 'btn btn-outline-success btn-sm' %>
             </td>
           </tr>
         </table>
       <% end %>
     </div>
+    <div class="col-md-2"></div>
+
   </div>
 </div>

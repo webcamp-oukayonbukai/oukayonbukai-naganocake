@@ -13,11 +13,11 @@
         </div>
       </div><br>
       <div class="genre-button text-center">
-        ▶︎　▶︎　
+        ▶︎　▶︎
         <% @genres.each do |genre| %>
           <%= link_to genre.name, items_path(id: genre), class: 'btn btn-sm' %>
         <% end %>
-          ◀︎　◀︎　
+          ◀︎　◀︎
       </div>
       <div class="new-items">
         <h3>新着商品</h3>
@@ -25,8 +25,14 @@
         <table class= "d-inline-block">
           <tr>
             <td>
-              <%= link_to item_path(item) do %>
-                <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
+              <% if admin_signed_in? %>
+                <%= link_to admin_item_path(item) do %>
+                  <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
+                <% end %>
+              <% else %>
+                <%= link_to item_path(item) do %>
+                  <%= attachment_image_tag(item, :image, :fill, 270, 150) %>
+                <% end %>
               <% end %>
             </td>
           </tr>
