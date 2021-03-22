@@ -9,22 +9,27 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to  my_page_path(@customer)
+      redirect_to  customers_my_page_path
     else
       render "edit"
     end
   end
 
   def unsubscribe
+    @customer = current_customer
   end
 
   def withdraw
+    @customer = current_customer
+    @customer.update(is_valid: false)
+    reset_session
+    redirect_to root_path
   end
 
   private
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :withdraw_status)
   end
 end

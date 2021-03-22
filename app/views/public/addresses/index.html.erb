@@ -1,6 +1,6 @@
-<h1>配送先登録/一覧</h1>
-<%= render 'form', address: @address %>
 <div class="container">
+  <p class="title">配送先登録/一覧</p>
+  <%= render 'form', address: @address %>
   <div class="row">
     <div class="col-md-12">
       <table class= "table table-bordered">
@@ -19,8 +19,8 @@
             <td><%= address.address %></td>
             <td><%= address.name %></td>
             <td>
-              <%= link_to '編集する', edit_address_path(address) %>
-              <%= link_to '削除する', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{address.id}" %>
+              <%= link_to '編集する', edit_address_path(address), class: "btn btn-outline-success btn-sm" %>
+              <%= link_to '削除する', address, method: :delete, data: { confirm: '削除しますか？' }, class: "btn btn-outline-danger btn-sm" %>
             </td>
           </tr>
           <% end %>

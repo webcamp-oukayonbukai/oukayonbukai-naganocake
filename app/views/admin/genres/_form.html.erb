@@ -1,6 +1,6 @@
-<table class= "table table-borderless">
+<%= form_with model: [:admin, genre], local: true do |f| %>
+  <table class= "table table-borderless">
 　 <thead>
-    <%= form_with model: [:admin, genre], local: true do |f| %>
 　　  <tr>
 　　    <th style="width:20%">ジャンル名</th>
 　　    <th style="width:20%"><%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "ジャンル名", size: 25 %></th>
@@ -12,6 +12,6 @@
 　　      <% end %>
 　　    </th>
 　　  </tr>
-　  <% end %>
-　</thead>
-</table>
+  　</thead>
+  </table>
+<% end %>

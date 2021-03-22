@@ -1,8 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_details
   belongs_to :customer
-  
-  order.shipping_cost = 800
+
   
   def item_price_total
     OrderDetail.all.sum(:subtotal)

@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_001311) do
     t.string "telephone_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "withdraw_status", default: true, null: false
+    t.boolean "withdraw_status", default: false, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
