@@ -23,7 +23,7 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    @customer.update(is_valid: false)
+    @customer.update(withdraw_status: true)
     reset_session
     redirect_to root_path
   end
