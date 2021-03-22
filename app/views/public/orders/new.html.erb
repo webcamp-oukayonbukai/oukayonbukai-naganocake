@@ -1,2 +1,33 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<h1>注文情報入力</h1>
+
+支払い方法
+<%= form_with model: @order, url: confirm_orders_path, local: true do | f | %>
+    <%= f.radio_button :pay_type, :"creditcard", checked: true %>
+    <%= f.label "クレジットカード" %>
+    <%= f.radio_button :pay_type, :"bank" %>
+    <%= f.label "銀行振込" %>
+
+お届け先
+    <%= f.radio_button :address_status, 0, checked: true %>
+    <%= f.label "ご自身の住所" %>
+    <%= "〒" "#{current_customer.postal_code}" "" "#{current_customer.address}" %>
+    <%= "#{current_customer.last_name}" "#{current_customer.first_name}" %>
+
+    <%= f.radio_button :address_status, 1 %>
+    <%= f.label "登録済住所から選択" %>
+    <%= f.collection_select :address_id, Address.all, :id, :reg_address %>
+
+    <%= f.radio_button :address_status, 2 %>
+    <%= f.label "新しいお届け先" %>
+    郵便番号
+    <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode",placeholder: "0000000" %>
+    住所
+    <%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "東京都渋谷区代々木神園町0-0", size: 70 %>
+    宛名
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "令和道子" %>
+
+
+<%= f.submit '確認画面へ進む' %>
+<% end %>
+
+

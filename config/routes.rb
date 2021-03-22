@@ -42,9 +42,13 @@ Rails.application.routes.draw do
 
     resources :items, only: [:index, :show]
 
-    resources :orders, only: [:new, :index, :show, :create]
-    post "/orders/confirm" => "orders#confirm"
-    get "/orders/complete" => "orders#complete"
+    # post "/orders/confirm" => "orders#confirm"
+    # get "/orders/complete" => "orders#complete"
+    resources :orders, only: [:new, :index, :show, :create] do
+      collection do
+        post "confirm"
+        get "complete"
+      end
+    end
   end
-
 end
