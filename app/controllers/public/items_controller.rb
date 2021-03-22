@@ -2,7 +2,7 @@ class Public::ItemsController < ApplicationController
   def index
     @items = Item.page(params[:page]).per(8)
     @items_all = Item.all
-    @item = Item.all
+    @genre = Genre.find(params[:id]) if params[:id]
   end
 
   def show

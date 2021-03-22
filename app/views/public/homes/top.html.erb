@@ -11,6 +11,13 @@
             <p class="text-white">会員でない方も商品の閲覧はできますが、</p>
             <p class="text-white">購入には会員登録が必要になります。</p>
         </div>
+      </div><br>
+      <div class="genre-button text-center">
+        ▶︎　▶︎　
+        <% @genres.each do |genre| %>
+          <%= link_to genre.name, items_path(id: genre), class: 'btn btn-sm' %>
+        <% end %>
+          ◀︎　◀︎　
       </div>
       <div class="new-items">
         <h3>新着商品</h3>
