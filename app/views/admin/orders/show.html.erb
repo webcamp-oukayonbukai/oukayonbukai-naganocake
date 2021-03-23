@@ -6,7 +6,7 @@
     <table class="table table-borderless" >
       <tr>
         <td><strong>購入者</strong></td>
-        <td><%= link_to @order.customer.last_name + @order.customer.first_name,  admin_customer_path %></td>
+        <td><%= link_to @order.customer.last_name + @order.customer.first_name, admin_customer_path(@order.customer.id) %></td>
         <td></td>
       </tr>
       <tr>
