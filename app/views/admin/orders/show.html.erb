@@ -28,7 +28,7 @@
         <td>
           <%= form_with model: [:admin, @order], url: admin_order_path(@order), method: :patch, local: true do |f| %>
             <%= f.select :buy_status, Order.buy_statuses.keys.map {|k| [I18n.t("enums.order.buy_status.#{k}"), k]} %>
-          <%= f.submit "更新", class: 'btn btn-outline-success btn-sm ' %>
+          <%= f.submit "更新", class: 'btn btn-light btn-sm ' %>
           <% end %>
         </td>
         <td></td>
@@ -56,7 +56,7 @@
               <td>
                 <%= form_with model: order_detail, url: admin_order_order_detail_path(@order,order_detail) , local: true do |f| %>
                   <%= f.select :make_status, OrderDetail.make_statuses.keys.map {|k| [I18n.t("enums.order_detail.make_status.#{k}"), k]} %>
-                <%= f.submit "更新", class: 'btn btn-outline-success btn-sm ' %>
+                <%= f.submit "更新", class: 'btn btn-light btn-sm ' %>
                 <% end %>
               </td>
               <td></td>
