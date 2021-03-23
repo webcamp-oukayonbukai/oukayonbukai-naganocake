@@ -72,5 +72,5 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'pry-byebug'
 
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.1' 
 gem 'enum_help'
