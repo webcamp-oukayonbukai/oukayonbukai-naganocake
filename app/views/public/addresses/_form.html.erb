@@ -20,9 +20,9 @@
             <td><%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "令和道子" %></td>
             <td>
               <% if address.id.nil? %>
-                <%= f.submit "新規登録", class: 'btn btn-outline-success btn-sm' %>
+                <%= f.submit "新規登録", class: 'btn btn-light btn-sm' %>
               <%else%>
-                <%= f.submit "変更内容を保存", class: 'btn btn-outline-success btn-sm' %>
+                <%= f.submit "変更内容を保存", class: 'btn btn-light btn-sm' %>
               <% end %>
             </td>
           </tr>
