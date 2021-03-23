@@ -8,7 +8,8 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
+    if @order.update(order_params) && @order.confirm_deposit?
+            @order.order_details.update_all(make_status: 1)
       redirect_to admin_order_path(@order)
     else
       render :show
