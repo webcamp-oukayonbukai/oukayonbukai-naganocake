@@ -22,4 +22,7 @@ class Order < ApplicationRecord
   def cal_price(customer)
  	  shipping_cost + customer.cart_items.sum(&:subtotal)
   end
+  
+  
+  
 end
