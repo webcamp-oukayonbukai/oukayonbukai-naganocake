@@ -1,10 +1,9 @@
 class CartItem < ApplicationRecord
   belongs_to :item
   belongs_to :customer
+  validates :quantity, presence: true
 
-  validates :item_id, presence: true, uniqueness: { scope: :customer_id }
-  
-  def subtotal
-    item.tax_price * quantity
-  end
+ def subtotal
+   self.item.tax_price * self.quantity
+ end
 end
