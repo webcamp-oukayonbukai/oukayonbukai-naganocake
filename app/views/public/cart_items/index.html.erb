@@ -6,9 +6,9 @@
       <div class="text-right">
         <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "カートを空にします。よろしいでしょうか？", class: "btn btn-light btn-sm" %>
       </div><br>
-        <table class="table table-bordered table-sm">
+        <table class="table table-hover table-inverse table-borderless">
           <thread>
-            <tr>
+            <tr style="background-color: #ffe6ca">
               <th style="width: 40%">商品名</th>
               <th style="width: 15%">単価(税込)</th>
               <th style="width: 15%">数量</th>
@@ -51,9 +51,9 @@
         </div>
         <div class="col-md-5"></div>
         <div class="col-md-4">
-          <table class="table table-bordered table-sm">
+          <table class="table table-hover table-inverse table-borderless table-sm">
             <tr>
-              <td>合計金額</td>
+              <td style="width: 30%">合計金額</td>
               <td><%= @cart_items.sum(&:subtotal).to_s(:delimited) %></td>
             </tr>
           </table>
