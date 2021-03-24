@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-    @items = Item.limit(4).order("created_at")
+    @items = Item.limit(4).order(created_at: :desc)
     @genres = Genre.all
   end
 

@@ -3,9 +3,9 @@
     <div class="row">
     <div class="col-md-8">
       <%= form_with model: @order, local: true do |f| %>
-        <table class="table table-bordered table-sm">
+        <table class="table table-hover table-inverse table-borderless table-sm">
           <thread>
-            <tr>
+            <tr style="background-color: #ffe6ca">
               <th>商品名</th>
               <th>単価(税込)</th>
               <th>数量</th>
@@ -28,18 +28,19 @@
         </table>
       <% end %>
     </div>
-    <div class="col-md-4">
-      <table class="table table-bordered table-sm">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <table class="table table-hover table-inverse table-borderless table-sm">
         <tr>
-          <td>送料</td>
+          <td style="background-color: #ffe6ca">送料</td>
           <td><%= @order.shipping_cost %></td>
         </tr>
         <tr>
-          <td>商品合計</td>
+          <td style="background-color: #ffe6ca">商品合計</td>
           <td><%= @cart_items.sum(&:subtotal).to_s(:delimited) %></td>
         </tr>
         <tr>
-          <td>請求金額</td>
+          <td style="background-color: #ffe6ca">請求金額</td>
           <td><%= @order.cal_price(current_customer).to_s(:delimited) %></td>
         </tr>
       </table>
