@@ -8,6 +8,11 @@ class Public::SessionsController < Devise::SessionsController
   # def new
   #   super
   # end
+    
+  def after_sign_in_path_for(resource)
+    customers_my_page_path
+  end
+  
 
   # POST /resource/sign_in
   # def create
