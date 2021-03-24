@@ -17,11 +17,15 @@
             <td>¥<%= @item.tax_price.to_s(:delimited) %>(税込)</td>
           </tr>
           <tr>
-            <td style="width: 30%">
-              <%= f.select :quantity, [*(1..10)], { include_blank: '個数選択' } %></td>
-            <td>
-              <%= f.submit "カートに入れる", class: 'btn btn-light btn-sm' %>
-            </td>
+            <% if @item.sale_status == false %>
+              <td><p>売切れ</p></td>
+            <% else %>
+              <td style="width: 30%">
+                <%= f.select :quantity, [*(1..10)], { include_blank: '個数選択' } %></td>
+              <td>
+                <%= f.submit "カートに入れる", class: 'btn btn-light btn-sm' %>
+              </td>
+            <% end %>
           </tr>
         </table>
       <% end %>

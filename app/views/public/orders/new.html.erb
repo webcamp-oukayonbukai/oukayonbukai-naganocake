@@ -22,7 +22,7 @@
       <div class="order-show">
         <%= f.radio_button :address_status, 1 %>
         <%= f.label "登録済住所から選択" %><br>
-        <%= f.collection_select :address_id, Address.all, :id, :reg_address %>
+        <%= f.collection_select :address_id, @addresses, :id, :reg_address %>
       </div>
       <div class="order-show">
           <%= f.radio_button :address_status, 2 %>
