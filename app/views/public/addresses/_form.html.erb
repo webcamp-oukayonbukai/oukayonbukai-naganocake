@@ -1,0 +1,33 @@
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_with model: address, local: true do |f| %>
+      <table class= "table table-borderless">
+        <tbody>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= f.text_field :postcode, autofocus: true, autocomplete: "postcode",placeholder: "0000000" %></td>
+            <td></td>
+          </tr>
+        <tbody>
+          <tr>
+            <td>住所</td>
+            <td><%= f.text_field :address, autofocus: true, autocomplete: "address",placeholder: "東京都渋谷区代々木神園町0-0", size: 70 %></td>
+            <td></td>
+          </tr>
+        <tbody>
+          <tr>
+            <td>宛名</td>
+            <td><%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "令和道子" %></td>
+            <td>
+              <% if address.id.nil? %>
+                <%= f.submit "新規登録", class: 'btn btn-light btn-sm' %>
+              <%else%>
+                <%= f.submit "変更内容を保存", class: 'btn btn-light btn-sm' %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <p class="title">配送先登録/一覧</p>
+  <%= render 'form', address: @address %>
+  <div class="row">
+    <div class="col-md-12">
+      <table class= "table table-hover table-inverse table-borderless">
+        <thread>
+          <tr style="background-color: #ffe6ca">
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thread>
+        <tbody>
+          <% @addresses.each do |address| %>
+          <tr>
+            <td><%= address.postcode %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td>
+              <%= link_to '編集する', edit_address_path(address), class: "btn btn-light btn-sm" %>
+              <%= link_to '削除する', address, method: :delete, data: { confirm: '削除しますか？' }, class: "btn btn-light btn-sm" %>
+            </td>
+          </tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>

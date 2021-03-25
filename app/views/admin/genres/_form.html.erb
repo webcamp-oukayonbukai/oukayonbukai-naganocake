@@ -1,0 +1,17 @@
+<%= form_with model: [:admin, genre], local: true do |f| %>
+  <table class= "table table-borderless">
+　 <thead>
+　　  <tr>
+　　    <th style="width:20%">ジャンル名</th>
+　　    <th style="width:20%"><%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "ジャンル名", size: 25 %></th>
+　　    <th>
+　　      <% if genre.id.nil? %>
+　　        <%= f.submit "新規登録", class: 'btn btn-light btn-sm ' %>
+　　      <%else%>
+　　        <%= f.submit "変更を保存", class: 'btn btn-light btn-sm' %>
+　　      <% end %>
+　　    </th>
+　　  </tr>
+  　</thead>
+  </table>
+<% end %>
