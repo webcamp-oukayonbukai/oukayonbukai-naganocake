@@ -17,6 +17,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body {
+  background-color: #fff5ea;
+}
+
 main {
   padding: 30px 0;
   background-color: #fff5ea;
@@ -56,7 +60,43 @@ p, h3, td, th {
   background-position: center;
 }
 
+.image1 {
+  width: 100%;
+  height: 400px;
+  margin-top: 40px;
+  background-image: url(image1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.image2 {
+  width: 100%;
+  height: 400px;
+  margin-top: 40px;
+  background-image: url(image2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.image3 {
+  width: 100%;
+  height: 400px;
+  margin-top: 40px;
+  background-image: url(image3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.image4 {
+  width: 100%;
+  height: 400px;
+  margin-top: 40px;
+  background-image: url(image4.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 .main-visual-content {
+  display: none;
   width: 100%;
   height: 400px;
   color: white;
@@ -107,6 +147,10 @@ a:link {color: #d2b48c; text-decoration:none }
 a:visited { color: #d2b48c; text-decoration:none }
 a:hover { color: #d2b48c; text-decoration:none }
 a:active { color: #d2b48c; text-decoration:none }
+
+footer {
+  margin-top: 400px;
+}
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {          
